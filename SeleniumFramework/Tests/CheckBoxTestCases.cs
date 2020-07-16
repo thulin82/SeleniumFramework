@@ -14,6 +14,7 @@ namespace SeleniumFramework.Tests
         {
             driver = Actions.InitializeDriver(5);
             NavigateTo.CheckBoxDemo(driver);
+            Actions.ClosePopup(driver);
         }
 
         [Test]

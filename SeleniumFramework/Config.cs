@@ -9,9 +9,9 @@
         {
             public static class Valid
             {
-                public static string Email = "";
-                public static string Username = "";
-                public static string Password = "";
+                public static string Email = "test@test.com";
+                public static string Username = "Test Testsson";
+                public static string Password = "test1234";
             }
 
             public static class Invalid
