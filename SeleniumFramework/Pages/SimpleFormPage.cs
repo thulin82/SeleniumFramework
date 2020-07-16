@@ -26,6 +26,24 @@ namespace SeleniumFramework.Pages
 
         [FindsBy(How = How.XPath, Using = "//span[@id='displayvalue']")]
         public IWebElement SumDisplay { get; set; }
+
+        public string UseSingleInputField(string msg)
+        {
+            MessageBox.Clear();
+            MessageBox.SendKeys(msg);
+            ShowMessageButton.Click();
+            return MessageDisplay.Text;
+        }
+
+        public string UseTwoInputFields(string msg1, string msg2)
+        {
+            MessageA.Clear();
+            MessageA.SendKeys(msg1);
+            MessageB.Clear();
+            MessageB.SendKeys(msg2);
+            GetTotalButton.Click();
+            return SumDisplay.Text;
+        }
     }
 }
 

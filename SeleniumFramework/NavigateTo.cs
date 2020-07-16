@@ -1,5 +1,4 @@
-﻿using OpenQA.Selenium;
-using SeleniumFramework.Pages;
+﻿using SeleniumFramework.Pages;
 
 namespace SeleniumFramework
 {

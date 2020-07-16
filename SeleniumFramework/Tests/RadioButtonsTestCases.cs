@@ -1,7 +1,5 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
 using SeleniumFramework.Base;
-using System.Threading;
 
 namespace SeleniumFramework.Tests
 {

@@ -14,5 +14,11 @@ namespace SeleniumFramework.Pages
 
         [FindsBy(How = How.XPath, Using = "//a[@class='list-group-item'][contains(text(),'Radio Buttons Demo')]")]
         public IWebElement RadioButtonsDemo { get; set; }
+
+        public SimpleFormPage ClickSimpleForm()
+        {
+            SimpleFormDemo.Click();
+            return new SimpleFormPage();
+        }
     }
 }
