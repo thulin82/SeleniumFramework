@@ -1,32 +1,30 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using SeleniumFramework.Base;
 using System.Threading;
 
 namespace SeleniumFramework.Tests
 {
-    [Parallelizable]
     class CheckBoxTestCases
     {
-        IWebDriver driver;
-
         [OneTimeSetUp]
         public void Initialize()
         {
-            driver = Actions.InitializeDriver(5);
-            NavigateTo.CheckBoxDemo(driver);
-            Actions.ClosePopup(driver);
+            Actions.InitializeDriver(5);
+            NavigateTo.CheckBoxDemo();
+            Actions.ClosePopup();
         }
 
         [Test]
         public void DefaultTest()
         {
-            Assert.That(driver.Title == Config.Title.CheckBoxTitle);
+            Assert.That(DriverContext.Driver.Title == Config.Title.CheckBoxTitle);
         }
 
         [OneTimeTearDown]
         public void CleanUp()
         {
-            driver.Quit();
+            DriverContext.Driver.Quit();
         }
     }
 }

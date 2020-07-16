@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SeleniumFramework.Base;
 using SeleniumFramework.Pages;
 using System;
 
@@ -7,30 +8,28 @@ namespace SeleniumFramework
 {
     public class Actions
     {
-        public static IWebDriver InitializeDriver(int second)
+        public static void InitializeDriver(int second)
         {
-            IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl(Config.BaseURL);
+            DriverContext.Driver = new ChromeDriver();
+            DriverContext.Driver.Navigate().GoToUrl(Config.BaseURL);
 
 
             TimeSpan seconds = TimeSpan.FromSeconds(second);
-            driver.Manage().Timeouts().ImplicitWait = seconds;
-
-            return driver;
+            DriverContext.Driver.Manage().Timeouts().ImplicitWait = seconds;
         }
 
-        public static void ClosePopup(IWebDriver driver)
+        public static void ClosePopup()
         {
-            bool exists = driver.FindElements(By.Id("at-cv-lightbox")).Count != 0;
+            bool exists = DriverContext.Driver.FindElements(By.Id("at-cv-lightbox")).Count != 0;
             if (exists)
             {
-                driver.FindElement(By.Id("at-cv-lightbox-close")).Click();
+                DriverContext.Driver.FindElement(By.Id("at-cv-lightbox-close")).Click();
             }
         }
 
-        public static string UseSingleInputField(string msg, IWebDriver driver)
+        public static string UseSingleInputField(string msg)
         {
-            SimpleFormPage page = new SimpleFormPage(driver);
+            SimpleFormPage page = new SimpleFormPage();
 
             page.MessageBox.Clear();
             page.MessageBox.SendKeys(msg);
@@ -38,9 +37,9 @@ namespace SeleniumFramework
             return page.MessageDisplay.Text;
         }
 
-        public static string UseTwoInputFields(string msg1, string msg2, IWebDriver driver)
+        public static string UseTwoInputFields(string msg1, string msg2)
         {
-            SimpleFormPage page = new SimpleFormPage(driver);
+            SimpleFormPage page = new SimpleFormPage();
             page.MessageA.Clear();
             page.MessageA.SendKeys(msg1);
             page.MessageB.Clear();

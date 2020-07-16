@@ -1,15 +1,11 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using SeleniumFramework.Base;
 
 namespace SeleniumFramework.Pages
 {
-    public class Menu
+    public class Menu : BasePage
     {
-        public Menu(IWebDriver driver)
-        {
-            PageFactory.InitElements(driver, this);
-        }
-
         [FindsBy(How = How.Id, Using = "basic_example")]
         public IWebElement BasicExamples { get; set; }
 

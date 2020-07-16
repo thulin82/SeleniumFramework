@@ -5,28 +5,28 @@ namespace SeleniumFramework
 {
     public static class NavigateTo
     {
-        public static void SimpleFormDemo(IWebDriver driver)
+        public static void SimpleFormDemo()
         {
-            Menu menu = new Menu(driver);
-            BasicItemPage biPage = new BasicItemPage(driver);
+            Menu menu = new Menu();
+            BasicItemPage biPage = new BasicItemPage();
 
             menu.BasicExamples.Click();
             biPage.SimpleFormDemo.Click();
         }
 
-        public static void CheckBoxDemo(IWebDriver driver)
+        public static void CheckBoxDemo()
         {
-            Menu menu = new Menu(driver);
-            BasicItemPage biPage = new BasicItemPage(driver);
+            Menu menu = new Menu();
+            BasicItemPage biPage = new BasicItemPage();
 
             menu.BasicExamples.Click();
             biPage.CheckBoxDemo.Click();
         }
 
-        public static void RadioButtonsDemo(IWebDriver driver)
+        public static void RadioButtonsDemo()
         {
-            Menu menu = new Menu(driver);
-            BasicItemPage biPage = new BasicItemPage(driver);
+            Menu menu = new Menu();
+            BasicItemPage biPage = new BasicItemPage();
 
             menu.BasicExamples.Click();
             biPage.RadioButtonsDemo.Click();

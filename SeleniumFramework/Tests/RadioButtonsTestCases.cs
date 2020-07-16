@@ -1,32 +1,30 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using SeleniumFramework.Base;
 using System.Threading;
 
 namespace SeleniumFramework.Tests
 {
-    [Parallelizable]
     class RadioButtonsTestCases
     {
-        IWebDriver driver;
-
         [OneTimeSetUp]
         public void Initialize()
         {
-            driver = Actions.InitializeDriver(5);
-            NavigateTo.RadioButtonsDemo(driver);
-            Actions.ClosePopup(driver);
+            Actions.InitializeDriver(5);
+            NavigateTo.RadioButtonsDemo();
+            Actions.ClosePopup();
         }
 
         [Test]
         public void DefaultTest()
         {
-            Assert.That(driver.Title == Config.Title.RadioButtonTitle);
+            Assert.That(DriverContext.Driver.Title == Config.Title.RadioButtonTitle);
         }
 
         [OneTimeTearDown]
         public void CleanUp()
         {
-            driver.Quit();
+            DriverContext.Driver.Quit();
         }
     }
 }

@@ -1,14 +1,13 @@
-﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
+﻿using SeleniumExtras.PageObjects;
 
 namespace SeleniumFramework.Base
 {
     public abstract class BasePage
     {
 
-        public BasePage(IWebDriver driver)
+        public BasePage()
         {
-            PageFactory.InitElements(driver, this);
+            PageFactory.InitElements(DriverContext.Driver, this);
         }
     }
 }

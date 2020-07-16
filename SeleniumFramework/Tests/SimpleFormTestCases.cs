@@ -1,42 +1,40 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using SeleniumFramework.Base;
 
 namespace SeleniumFramework.Tests
 {
-    [Parallelizable]
     public class SimpleFormTestCases
     {
-        IWebDriver driver;
-
         [OneTimeSetUp]
         public void Initialize()
         {
-            driver = Actions.InitializeDriver(5);
-            NavigateTo.SimpleFormDemo(driver);
-            Actions.ClosePopup(driver);
+            Actions.InitializeDriver(5);
+            NavigateTo.SimpleFormDemo();
+            Actions.ClosePopup();
         }
 
         [Test]
         public void SingleInput()
         {
-            Assert.That(driver.Title == Config.Title.SimpleFormTitle);
-            var textDisplayed = Actions.UseSingleInputField(Config.Credentials.Valid.Username, driver);
+            Assert.That(DriverContext.Driver.Title == Config.Title.SimpleFormTitle);
+            var textDisplayed = Actions.UseSingleInputField(Config.Credentials.Valid.Username);
             Assert.That(textDisplayed == Config.Credentials.Valid.Username);
         }
 
         [Test]
         public void TwoInputValid()
         {
-            Assert.That(driver.Title == Config.Title.SimpleFormTitle);
-            var sumDisplayed = Actions.UseTwoInputFields("1", "2", driver);
+            Assert.That(DriverContext.Driver.Title == Config.Title.SimpleFormTitle);
+            var sumDisplayed = Actions.UseTwoInputFields("1", "2");
             Assert.That(sumDisplayed == "3");
         }
 
         [Test]
         public void TwoInputInValid()
         {
-            Assert.That(driver.Title == Config.Title.SimpleFormTitle);
-            var sumDisplayed = Actions.UseTwoInputFields("1", "a", driver);
+            Assert.That(DriverContext.Driver.Title == Config.Title.SimpleFormTitle);
+            var sumDisplayed = Actions.UseTwoInputFields("1", "a");
             Assert.That(sumDisplayed == "NaN");
         }
 
@@ -44,7 +42,7 @@ namespace SeleniumFramework.Tests
         [OneTimeTearDown]
         public void CleanUp()
         {
-            driver.Quit();
+            DriverContext.Driver.Quit();
         }
     }
 }

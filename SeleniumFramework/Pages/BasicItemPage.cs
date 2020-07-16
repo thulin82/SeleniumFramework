@@ -6,10 +6,6 @@ namespace SeleniumFramework.Pages
 {
     public class BasicItemPage : BasePage
     {
-        public BasicItemPage(IWebDriver driver) : base(driver)
-        {
-        }
-
         [FindsBy(How = How.XPath, Using = "//a[@class='list-group-item'][contains(text(),'Simple Form Demo')]")]
         public IWebElement SimpleFormDemo { get; set; }
 

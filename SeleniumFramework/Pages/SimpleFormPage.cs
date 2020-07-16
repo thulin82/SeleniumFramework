@@ -6,11 +6,6 @@ namespace SeleniumFramework.Pages
 {
     public class SimpleFormPage : BasePage
     {
-
-        public SimpleFormPage(IWebDriver driver) : base(driver)
-        {
-        }
-
         [FindsBy(How = How.XPath, Using = "//input[@id='user-message']")]
         public IWebElement MessageBox { get; set; }
 
