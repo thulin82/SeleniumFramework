@@ -1,13 +1,13 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using SeleniumFramework.Base;
 
 namespace SeleniumFramework.Pages
 {
-    public class BasicItemPage
+    public class BasicItemPage : BasePage
     {
-        public BasicItemPage(IWebDriver driver)
+        public BasicItemPage(IWebDriver driver) : base(driver)
         {
-            PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//a[@class='list-group-item'][contains(text(),'Simple Form Demo')]")]

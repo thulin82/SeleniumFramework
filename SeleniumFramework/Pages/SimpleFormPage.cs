@@ -1,14 +1,14 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using SeleniumFramework.Base;
 
 namespace SeleniumFramework.Pages
 {
-    public class SimpleFormPage
+    public class SimpleFormPage : BasePage
     {
 
-        public SimpleFormPage(IWebDriver driver)
+        public SimpleFormPage(IWebDriver driver) : base(driver)
         {
-            PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//input[@id='user-message']")]
