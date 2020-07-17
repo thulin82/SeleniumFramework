@@ -1,15 +1,20 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Base;
+using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
 {
     class CheckBoxTestCases
     {
+        private CheckBoxPage checkBoxPage;
+
         [OneTimeSetUp]
         public void Initialize()
         {
             Actions.InitializeDriver(5);
-            NavigateTo.CheckBoxDemo();
+            HomePage menu = new HomePage();
+            menu.MenuInputForms.Click();
+            checkBoxPage = menu.ClickCheckBox();
             Actions.ClosePopup();
         }
 

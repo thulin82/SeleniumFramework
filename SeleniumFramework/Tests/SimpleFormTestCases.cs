@@ -12,10 +12,9 @@ namespace SeleniumFramework.Tests
         public void Initialize()
         {
             Actions.InitializeDriver(5);
-            Menu menu = new Menu();
-            menu.BasicExamples.Click();
-            BasicItemPage biPage = new BasicItemPage();
-            formPage = biPage.ClickSimpleForm();
+            HomePage menu = new HomePage();
+            menu.MenuInputForms.Click();
+            formPage = menu.ClickSimpleForm();
             Actions.ClosePopup();
         }
 

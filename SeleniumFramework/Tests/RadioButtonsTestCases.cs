@@ -1,15 +1,20 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Base;
+using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
 {
     class RadioButtonsTestCases
     {
+        private RadioButtonsPage radioButtonPage;
+
         [OneTimeSetUp]
         public void Initialize()
         {
             Actions.InitializeDriver(5);
-            NavigateTo.RadioButtonsDemo();
+            HomePage menu = new HomePage();
+            menu.MenuInputForms.Click();
+            radioButtonPage = menu.ClickRadioButtons();
             Actions.ClosePopup();
         }
 
