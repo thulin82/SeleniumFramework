@@ -39,7 +39,6 @@ namespace SeleniumFramework.Tests
             Assert.That(sumDisplayed == "NaN");
         }
 
-
         [OneTimeTearDown]
         public void CleanUp()
         {
