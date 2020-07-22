@@ -30,6 +30,12 @@ namespace SeleniumFramework.Pages
             return new TableDataDownloadPage();
         }
 
+        public DropDownPage ClickDropDown()
+        {
+            LnkDropDown.Click();
+            return new DropDownPage();
+        }
+
         #region WebElements
         [FindsBy(How = How.XPath, Using = "//a[@class='dropdown-toggle'][contains(text(),'Input Forms')]")]
         public IWebElement MenuInputForms { get; set; }
@@ -42,6 +48,9 @@ namespace SeleniumFramework.Pages
 
         [FindsBy(How = How.XPath, Using = "//ul[@class='dropdown-menu']//a[contains(text(),'Radio Buttons Demo')]")]
         public IWebElement LnkRadioButton { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//ul[@class='dropdown-menu']//a[contains(text(),'Select Dropdown List')]")]
+        public IWebElement LnkDropDown { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[@class='dropdown-toggle'][contains(text(),'Date pickers')]")]
         public IWebElement MenuDatePickers { get; set; }
