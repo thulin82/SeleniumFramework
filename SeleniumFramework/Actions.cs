@@ -3,6 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using SeleniumFramework.Base;
+using SeleniumFramework.Config;
 using System;
 
 namespace SeleniumFramework
@@ -28,7 +29,7 @@ namespace SeleniumFramework
             }
 
             DriverContext.Driver.Manage().Window.Maximize();
-            DriverContext.Driver.Navigate().GoToUrl(Config.BaseURL);
+            DriverContext.Driver.Navigate().GoToUrl(Settings.SUT);
 
 
             TimeSpan seconds = TimeSpan.FromSeconds(second);

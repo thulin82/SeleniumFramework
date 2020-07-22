@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SeleniumFramework>
+  <RunSettings>
+    <SUT>https://www.seleniumeasy.com/test/</SUT>
+    <BrowserType>Chrome</BrowserType>
+    <UserName>Test Testsson</UserName>
+  </RunSettings>
+  <Titles>
+    <CheckBoxTitle>Selenium Easy - Checkbox demo for automation using selenium</CheckBoxTitle>
+    <RadioButtonTitle>Selenium Easy Demo - Radio buttons demo for Automation</RadioButtonTitle>
+    <SimpleFormTitle>Selenium Easy Demo - Simple Form to Automate using Selenium</SimpleFormTitle>
+  </Titles>
+</SeleniumFramework>

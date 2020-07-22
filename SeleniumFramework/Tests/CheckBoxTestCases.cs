@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Base;
+using SeleniumFramework.Config;
 using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
@@ -11,7 +12,8 @@ namespace SeleniumFramework.Tests
         [OneTimeSetUp]
         public void Initialize()
         {
-            Actions.InitializeDriver(5);
+            ConfigReader.SetFrameworkSettings();
+            Actions.InitializeDriver(5, Settings.BrowserType);
             HomePage menu = new HomePage();
             menu.MenuInputForms.Click();
             checkBoxPage = menu.ClickCheckBox();
@@ -21,7 +23,7 @@ namespace SeleniumFramework.Tests
         [Test]
         public void DefaultTest()
         {
-            Assert.That(DriverContext.Driver.Title == Config.Title.CheckBoxTitle);
+            Assert.That(DriverContext.Driver.Title == Settings.CheckBoxTitle);
         }
 
         [OneTimeTearDown]

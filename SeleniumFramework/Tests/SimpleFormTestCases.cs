@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Base;
+using SeleniumFramework.Config;
 using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
@@ -11,7 +12,8 @@ namespace SeleniumFramework.Tests
         [OneTimeSetUp]
         public void Initialize()
         {
-            Actions.InitializeDriver(5);
+            ConfigReader.SetFrameworkSettings();
+            Actions.InitializeDriver(5, Settings.BrowserType);
             HomePage menu = new HomePage();
             menu.MenuInputForms.Click();
             formPage = menu.ClickSimpleForm();
@@ -21,8 +23,8 @@ namespace SeleniumFramework.Tests
         [Test]
         public void SingleInput()
         {
-            var textDisplayed = formPage.UseSingleInputField(Config.Credentials.Valid.Username);
-            Assert.That(textDisplayed == Config.Credentials.Valid.Username);
+            var textDisplayed = formPage.UseSingleInputField(Settings.UserName);
+            Assert.That(textDisplayed == Settings.UserName);
         }
 
         [Test]

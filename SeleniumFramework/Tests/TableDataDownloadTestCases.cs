@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Base;
+using SeleniumFramework.Config;
 using SeleniumFramework.Helpers;
 using SeleniumFramework.Pages;
 
@@ -12,7 +13,8 @@ namespace SeleniumFramework.Tests
         [OneTimeSetUp]
         public void Initialize()
         {
-            Actions.InitializeDriver(5);
+            ConfigReader.SetFrameworkSettings();
+            Actions.InitializeDriver(5, Settings.BrowserType);
             HomePage menu = new HomePage();
             menu.MenuTable.Click();
             tableDataDownloadPage = menu.ClickTableDataDownload();
