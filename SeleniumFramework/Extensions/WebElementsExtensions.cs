@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SeleniumFramework.Extensions
 {
@@ -9,6 +11,18 @@ namespace SeleniumFramework.Extensions
         {
             SelectElement list = new SelectElement(element);
             list.SelectByText(value);
+        }
+
+        public static string GetSelectedDropDown(this IWebElement element)
+        {
+            SelectElement list = new SelectElement(element);
+            return list.AllSelectedOptions.First().ToString();
+        }
+
+        public static IList<IWebElement> GetSelectedListOptions(this IWebElement element)
+        {
+            SelectElement list = new SelectElement(element);
+            return list.AllSelectedOptions;
         }
     }
 }
