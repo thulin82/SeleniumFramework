@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
 using System.Xml.XPath;
 
@@ -8,32 +9,18 @@ namespace SeleniumFramework.Config
     {
         public static void SetFrameworkSettings()
         {
-            XPathItem SUT;
-            XPathItem BrowserType;
-            XPathItem UserName;
-            XPathItem CheckBoxTitle;
-            XPathItem RadioButtonTitle;
-            XPathItem SimpleFormTitle;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
 
-            string fileName = Environment.CurrentDirectory.ToString() + "\\Config\\GlobalConfig.xml";
-            FileStream stream = new FileStream(fileName, FileMode.Open);
-            XPathDocument document = new XPathDocument(stream);
-            XPathNavigator navigator = document.CreateNavigator();
+            IConfigurationRoot configRoot = builder.Build();
 
-            SUT = navigator.SelectSingleNode("SeleniumFramework/RunSettings/SUT");
-            BrowserType = navigator.SelectSingleNode("SeleniumFramework/RunSettings/BrowserType");
-            UserName = navigator.SelectSingleNode("SeleniumFramework/RunSettings/UserName");
-            CheckBoxTitle = navigator.SelectSingleNode("SeleniumFramework/Titles/CheckBoxTitle");
-            RadioButtonTitle = navigator.SelectSingleNode("SeleniumFramework/Titles/RadioButtonTitle");
-            SimpleFormTitle = navigator.SelectSingleNode("SeleniumFramework/Titles/SimpleFormTitle");
-
-
-            Settings.SUT = SUT.Value.ToString();
-            Settings.BrowserType = (Base.BrowserType)Enum.Parse(typeof(Base.BrowserType), BrowserType.Value.ToString());
-            Settings.UserName = UserName.Value.ToString();
-            Settings.CheckBoxTitle = CheckBoxTitle.Value.ToString();
-            Settings.RadioButtonTitle = RadioButtonTitle.Value.ToString();
-            Settings.SimpleFormTitle = SimpleFormTitle.Value.ToString();
+            Settings.SUT = configRoot.GetSection("testSettings").Get<TestSettings>().sut;
+            Settings.BrowserType = configRoot.GetSection("testSettings").Get<TestSettings>().browser;
+            Settings.UserName = configRoot.GetSection("testData").Get<TestData>().username;
+            Settings.CheckBoxTitle = configRoot.GetSection("testData").Get<TestData>().checkboxtitle;
+            Settings.RadioButtonTitle = configRoot.GetSection("testData").Get<TestData>().radiobuttontitle;
+            Settings.SimpleFormTitle = configRoot.GetSection("testData").Get<TestData>().simpleformtitle;
         }
     }
 }
