@@ -5,19 +5,17 @@ using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
 {
-    class RadioButtonsTestCases
+    class RadioButtonsTestCases : TestInitializeHook
     {
         private RadioButtonsPage radioButtonPage;
 
         [OneTimeSetUp]
         public void Initialize()
         {
-            ConfigReader.SetFrameworkSettings();
-            Actions.InitializeDriver(5, Settings.BrowserType);
             HomePage menu = new HomePage();
+            menu.ClosePopup();
             menu.MenuInputForms.Click();
             radioButtonPage = menu.ClickRadioButtons();
-            Actions.ClosePopup();
         }
 
         [Test]

@@ -6,19 +6,17 @@ using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
 {
-    class DropDownTestCases
+    class DropDownTestCases : TestInitializeHook
     {
         private DropDownPage dropDownPage;
 
         [OneTimeSetUp]
         public void Initialize()
         {
-            ConfigReader.SetFrameworkSettings();
-            Actions.InitializeDriver(5, Settings.BrowserType);
             HomePage menu = new HomePage();
+            menu.ClosePopup();
             menu.MenuInputForms.Click();
             dropDownPage = menu.ClickDropDown();
-            Actions.ClosePopup();
         }
 
         [Test]

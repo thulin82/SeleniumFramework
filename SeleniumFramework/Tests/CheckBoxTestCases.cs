@@ -5,19 +5,17 @@ using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
 {
-    class CheckBoxTestCases
+    class CheckBoxTestCases : TestInitializeHook
     {
         private CheckBoxPage checkBoxPage;
 
         [OneTimeSetUp]
         public void Initialize()
         {
-            ConfigReader.SetFrameworkSettings();
-            Actions.InitializeDriver(5, Settings.BrowserType);
             HomePage menu = new HomePage();
+            menu.ClosePopup();
             menu.MenuInputForms.Click();
             checkBoxPage = menu.ClickCheckBox();
-            Actions.ClosePopup();
         }
 
         [Test]

@@ -36,6 +36,15 @@ namespace SeleniumFramework.Pages
             return new DropDownPage();
         }
 
+        public void ClosePopup()
+        {
+            bool exists = DriverContext.Driver.FindElements(By.Id("at-cv-lightbox")).Count != 0;
+            if (exists)
+            {
+                DriverContext.Driver.FindElement(By.Id("at-cv-lightbox-close")).Click();
+            }
+        }
+
         #region WebElements
         [FindsBy(How = How.XPath, Using = "//a[@class='dropdown-toggle'][contains(text(),'Input Forms')]")]
         public IWebElement MenuInputForms { get; set; }

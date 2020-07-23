@@ -5,19 +5,17 @@ using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
 {
-    public class SimpleFormTestCases
+    public class SimpleFormTestCases : TestInitializeHook
     {
         private SimpleFormPage formPage;
 
         [OneTimeSetUp]
         public void Initialize()
         {
-            ConfigReader.SetFrameworkSettings();
-            Actions.InitializeDriver(5, Settings.BrowserType);
             HomePage menu = new HomePage();
+            menu.ClosePopup();
             menu.MenuInputForms.Click();
             formPage = menu.ClickSimpleForm();
-            Actions.ClosePopup();
         }
 
         [Test]

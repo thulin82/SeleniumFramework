@@ -1,16 +1,31 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using SeleniumFramework.Base;
 using SeleniumFramework.Config;
+using SeleniumFramework.Helpers;
 using System;
 
-namespace SeleniumFramework
+namespace SeleniumFramework.Base
 {
-    public class Actions
+    public abstract class TestInitializeHook
     {
-        public static void InitializeDriver(int second, BrowserType browser = BrowserType.Chrome)
+        public TestInitializeHook()
+        {
+            InitializeSettings();
+        }
+        public void InitializeSettings()
+        {
+            // Framework settings from GlobalConfig.xml
+            ConfigReader.SetFrameworkSettings();
+
+            //Log setting
+            //LogHelpers.CreateLogFile();
+
+            //Open Browser
+            OpenBrowser(5, Settings.BrowserType);
+        }
+
+        private static void OpenBrowser(int second, BrowserType browser = BrowserType.Chrome)
         {
             switch (browser)
             {
@@ -34,15 +49,6 @@ namespace SeleniumFramework
 
             TimeSpan seconds = TimeSpan.FromSeconds(second);
             DriverContext.Driver.Manage().Timeouts().ImplicitWait = seconds;
-        }
-
-        public static void ClosePopup()
-        {
-            bool exists = DriverContext.Driver.FindElements(By.Id("at-cv-lightbox")).Count != 0;
-            if (exists)
-            {
-                DriverContext.Driver.FindElement(By.Id("at-cv-lightbox-close")).Click();
-            }
         }
     }
 }

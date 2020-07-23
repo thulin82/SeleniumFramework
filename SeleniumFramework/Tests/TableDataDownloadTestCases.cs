@@ -6,19 +6,17 @@ using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
 {
-    class TableDataDownloadTestCases
+    class TableDataDownloadTestCases : TestInitializeHook
     {
         private TableDataDownloadPage tableDataDownloadPage;
 
         [OneTimeSetUp]
         public void Initialize()
         {
-            ConfigReader.SetFrameworkSettings();
-            Actions.InitializeDriver(5, Settings.BrowserType);
             HomePage menu = new HomePage();
+            menu.ClosePopup();
             menu.MenuTable.Click();
             tableDataDownloadPage = menu.ClickTableDataDownload();
-            Actions.ClosePopup();
         }
 
         [Test]
