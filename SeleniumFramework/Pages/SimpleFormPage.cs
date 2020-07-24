@@ -1,11 +1,14 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using SeleniumFramework.Base;
 
 namespace SeleniumFramework.Pages
 {
-    public class SimpleFormPage : BasePage
+    public class SimpleFormPage
     {
+        private readonly IWebDriver _driver;
+
+        public SimpleFormPage() => _driver = DriverContext.Driver;
+
         public string UseSingleInputField(string msg)
         {
             MessageBox.Clear();
@@ -25,26 +28,13 @@ namespace SeleniumFramework.Pages
         }
 
         #region WebElements
-        [FindsBy(How = How.XPath, Using = "//input[@id='user-message']")]
-        public IWebElement MessageBox { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Show Message')]")]
-        public IWebElement ShowMessageButton { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//span[@id='display']")]
-        public IWebElement MessageDisplay { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//input[@id='sum1']")]
-        public IWebElement MessageA { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//input[@id='sum2']")]
-        public IWebElement MessageB { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Get Total')]")]
-        public IWebElement GetTotalButton { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//span[@id='displayvalue']")]
-        public IWebElement SumDisplay { get; set; }
+        public IWebElement MessageBox => _driver.FindElement(By.Id("user-message"));
+        public IWebElement ShowMessageButton => _driver.FindElement(By.XPath("//button[contains(text(),'Show Message')]"));
+        public IWebElement MessageDisplay => _driver.FindElement(By.Id("display"));
+        public IWebElement MessageA => _driver.FindElement(By.Id("sum1"));
+        public IWebElement MessageB => _driver.FindElement(By.Id("sum2"));
+        public IWebElement GetTotalButton => _driver.FindElement(By.XPath("//button[contains(text(),'Get Total')]"));
+        public IWebElement SumDisplay => _driver.FindElement(By.Id("displayvalue"));
         #endregion
     }
 }

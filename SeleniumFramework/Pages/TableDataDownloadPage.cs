@@ -1,18 +1,21 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using SeleniumFramework.Base;
 
 namespace SeleniumFramework.Pages
 {
-    public class TableDataDownloadPage : BasePage
+    public class TableDataDownloadPage
     {
+        private readonly IWebDriver _driver;
+
+        public TableDataDownloadPage() => _driver = DriverContext.Driver;
+
         public IWebElement GetTable()
         {
             return Table;
         }
+
         #region WebElements
-        [FindsBy(How = How.Id, Using = "example")]
-        private IWebElement Table { get; set; }
+        private IWebElement Table => _driver.FindElement(By.Id("example"));
         #endregion
     }
 }

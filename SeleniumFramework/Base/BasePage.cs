@@ -1,13 +1,11 @@
-﻿using SeleniumExtras.PageObjects;
-
-namespace SeleniumFramework.Base
+﻿namespace SeleniumFramework.Base
 {
     public abstract class BasePage
     {
 
-        public BasePage()
-        {
-            PageFactory.InitElements(DriverContext.Driver, this);
-        }
+        //public BasePage()
+        //{
+        //    PageFactory.InitElements(DriverContext.Driver, this);
+        //}
     }
 }

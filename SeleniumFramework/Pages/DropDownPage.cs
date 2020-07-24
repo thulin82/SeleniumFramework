@@ -1,17 +1,18 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using SeleniumFramework.Base;
 
 namespace SeleniumFramework.Pages
 {
-    public class DropDownPage : BasePage
+    public class DropDownPage
     {
-        #region WebElements
-        [FindsBy(How = How.Id, Using = "select-demo")]
-        public IWebElement DropDown { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//p[@class='selected-value']")]
-        public IWebElement DayDisplay { get; set; }
+        private readonly IWebDriver _driver;
+
+        public DropDownPage() => _driver = DriverContext.Driver;
+
+        #region WebElements
+        public IWebElement DropDown => _driver.FindElement(By.Id("select-demo"));
+        public IWebElement DayDisplay => _driver.FindElement(By.XPath("//p[@class='selected-value']"));
         #endregion
     }
 }

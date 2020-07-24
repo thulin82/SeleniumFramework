@@ -1,11 +1,14 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using SeleniumFramework.Base;
 
 namespace SeleniumFramework.Pages
 {
-    public class HomePage : BasePage
+    public class HomePage
     {
+        private readonly IWebDriver _driver;
+
+        public HomePage() => _driver = DriverContext.Driver;
+
         public SimpleFormPage ClickSimpleForm()
         {
             LnkSimpleForm.Click();
@@ -46,29 +49,14 @@ namespace SeleniumFramework.Pages
         }
 
         #region WebElements
-        [FindsBy(How = How.XPath, Using = "//a[@class='dropdown-toggle'][contains(text(),'Input Forms')]")]
-        public IWebElement MenuInputForms { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//ul[@class='dropdown-menu']//a[contains(text(),'Simple Form Demo')]")]
-        public IWebElement LnkSimpleForm { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//ul[@class='dropdown-menu']//a[contains(text(),'Checkbox Demo')]")]
-        public IWebElement LnkCheckBox { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//ul[@class='dropdown-menu']//a[contains(text(),'Radio Buttons Demo')]")]
-        public IWebElement LnkRadioButton { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//ul[@class='dropdown-menu']//a[contains(text(),'Select Dropdown List')]")]
-        public IWebElement LnkDropDown { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//a[@class='dropdown-toggle'][contains(text(),'Date pickers')]")]
-        public IWebElement MenuDatePickers { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//a[@class='dropdown-toggle'][contains(text(),'Table')]")]
-        public IWebElement MenuTable { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//ul[@class='dropdown-menu']//a[contains(text(),'Table Data Download')]")]
-        public IWebElement LnkTableDataDownload { get; set; }
+        public IWebElement MenuInputForms => _driver.FindElement(By.XPath("//a[@class='dropdown-toggle'][contains(text(),'Input Forms')]"));
+        public IWebElement LnkSimpleForm => _driver.FindElement(By.XPath("//ul[@class='dropdown-menu']//a[contains(text(),'Simple Form Demo')]"));
+        public IWebElement LnkCheckBox => _driver.FindElement(By.XPath("//ul[@class='dropdown-menu']//a[contains(text(),'Checkbox Demo')]"));
+        public IWebElement LnkRadioButton => _driver.FindElement(By.XPath("//ul[@class='dropdown-menu']//a[contains(text(),'Radio Buttons Demo')]"));
+        public IWebElement LnkDropDown => _driver.FindElement(By.XPath("//ul[@class='dropdown-menu']//a[contains(text(),'Select Dropdown List')]"));
+        public IWebElement MenuDatePickers => _driver.FindElement(By.XPath("//a[@class='dropdown-toggle'][contains(text(),'Date pickers')]"));
+        public IWebElement MenuTable => _driver.FindElement(By.XPath("//a[@class='dropdown-toggle'][contains(text(),'Table')]"));
+        public IWebElement LnkTableDataDownload => _driver.FindElement(By.XPath("//ul[@class='dropdown-menu']//a[contains(text(),'Table Data Download')]"));
         #endregion
     }
 }

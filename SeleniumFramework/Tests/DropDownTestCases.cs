@@ -27,10 +27,10 @@ namespace SeleniumFramework.Tests
         }
 
         [Test]
-        public void SelectSaturday()
+        public void SelectSunday()
         {
-            dropDownPage.DropDown.SelectDropDownList("Saturday");
-            Assert.That(dropDownPage.DayDisplay.Text == "Day selected :- Saturday", $"{ dropDownPage.DayDisplay.Text} is not equal to 'Day selected :- Saturday'");
+            dropDownPage.DropDown.SelectDropDownList("Sunday");
+            Assert.That(dropDownPage.DayDisplay.Text == "Day selected :- Sunday", $"{ dropDownPage.DayDisplay.Text} is not equal to 'Day selected :- Sunday'");
         }
 
         [OneTimeTearDown]
