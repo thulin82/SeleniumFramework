@@ -10,6 +10,7 @@ namespace SeleniumFramework.Extensions
         public static void SelectDropDownList(this IWebElement element, string value)
         {
             SelectElement list = new SelectElement(element);
+            list.SelectByIndex(0);
             list.SelectByText(value);
         }
 
