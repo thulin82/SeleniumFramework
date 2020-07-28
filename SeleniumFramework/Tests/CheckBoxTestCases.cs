@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Base;
-using SeleniumFramework.Config;
 using SeleniumFramework.Pages;
 
 namespace SeleniumFramework.Tests
@@ -19,9 +18,25 @@ namespace SeleniumFramework.Tests
         }
 
         [Test]
-        public void DefaultTest()
+        public void SingleCheckBox()
         {
-            Assert.That(DriverContext.Driver.Title == Settings.CheckBoxTitle);
+            checkBoxPage.ClickSingle();
+            Assert.That(checkBoxPage.SingleDisplay.Text == "Success - Check box is checked");
+        }
+
+        [Test]
+        public void MultipleCheckBox()
+        {
+            checkBoxPage.ClickButton(true);
+            foreach (var item in checkBoxPage.MultiCheckBoxes)
+            {
+                Assert.That(item.Selected == true);
+            }
+            checkBoxPage.ClickButton(false);
+            foreach (var item in checkBoxPage.MultiCheckBoxes)
+            {
+                Assert.That(item.Selected == false);
+            }
         }
 
         [OneTimeTearDown]
