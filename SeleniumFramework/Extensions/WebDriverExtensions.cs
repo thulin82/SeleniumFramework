@@ -25,7 +25,7 @@ namespace SeleniumFramework.Extensions
                     {
                         return condition(arg);
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
 
                         return false;
