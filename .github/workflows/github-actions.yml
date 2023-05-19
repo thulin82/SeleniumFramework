@@ -38,7 +38,7 @@ jobs:
               with:
                   dotnet-version: "6.0"
             - name: Test
-              run: dotnet test --no-restore --verbosity normal --logger trx SeleniumFramework/SeleniumFramework/SeleniumFramework.dll
+              run: dotnet test --no-restore --verbosity normal --logger trx SeleniumFramework.dll
             - name: Test Report
               uses: dorny/test-reporter@v1
               if: success() || failure()
