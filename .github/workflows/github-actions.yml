@@ -44,6 +44,6 @@ jobs:
               if: success() || failure()
               with:
                   name: Tests
-                  path: SeleniumFramework/TestResults/*.trx
+                  path: SeleniumFramework/**/TestResults/*.trx
                   reporter: dotnet-trx
                   fail-on-error: "false"
