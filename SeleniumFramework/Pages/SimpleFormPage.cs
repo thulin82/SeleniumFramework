@@ -31,8 +31,8 @@ namespace SeleniumFramework.Pages
         public IWebElement MessageBox => _driver.FindElement(By.Id("user-message"));
         public IWebElement ShowMessageButton => _driver.FindElement(By.XPath("//button[contains(text(),'Show Message')]"));
         public IWebElement MessageDisplay => _driver.FindElement(By.Id("display"));
-        public IWebElement MessageA => _driver.FindElement(By.Id("sum1"));
-        public IWebElement MessageB => _driver.FindElement(By.Id("sum2"));
+        public IWebElement MessageA => _driver.FindElement(By.Id("value1"));
+        public IWebElement MessageB => _driver.FindElement(By.Id("value2"));
         public IWebElement GetTotalButton => _driver.FindElement(By.XPath("//button[contains(text(),'Get Total')]"));
         public IWebElement SumDisplay => _driver.FindElement(By.Id("displayvalue"));
         #endregion
