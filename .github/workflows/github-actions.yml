@@ -39,14 +39,21 @@ jobs:
                   dotnet-version: "6.0"
             - name: Test
               run: dotnet test --no-restore --verbosity normal --logger "trx;logfilename=testResults.trx" bin/Release/net6.0-windows/SeleniumFramework.dll
-            - name: Multi line step
-              if: success() || failure()
-              run: |
-                  pwd
-                  ls
             - name: Upload Test Report
               uses: actions/upload-artifact@v3
               if: success() || failure()
               with:
                   name: test-results
                   path: TestResults/testResults.trx
+    report:
+        runs-on: windows-latest
+        needs: test
+        steps:
+            - name: Test Report
+            - uses: dorny/test-reporter@v1
+              with:
+                  artifact: test-results
+                  name: Tests
+                  path: "testResults.trx"
+                  reporter: dotnet-trx
+                  fail-on-error: "false"
