@@ -39,9 +39,13 @@ jobs:
                   dotnet-version: "6.0"
             - name: Test
               run: dotnet test --no-restore --verbosity normal --logger trx bin/Release/net6.0-windows/SeleniumFramework.dll
+            - name: Multi line step
+              run: |
+                  pwd
+                  ls
             - name: Upload Test Report
               uses: actions/upload-artifact@v3
               if: success() || failure()
               with:
                   name: test-results
-                  path: SeleniumFramework/**/TestResults/*.trx
+                  path: SeleniumFramework/SeleniumFramework/TestResults/*.trx
