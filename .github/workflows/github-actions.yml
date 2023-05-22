@@ -23,7 +23,7 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: build-artifact
-                  path: SeleniumFramework/**/bin/Release/net6.0-windows/*.dll
+                  path: SeleniumFramework/**/bin/Release/net6.0-windows/
 
     test:
         runs-on: windows-latest
