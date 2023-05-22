@@ -40,7 +40,7 @@ jobs:
             - name: Test
               run: dotnet test --no-restore --verbosity normal --logger trx bin/Release/net6.0-windows/SeleniumFramework.dll
             - name: Upload Test Report
-              uses: actions/upload-artifacr@v3
+              uses: actions/upload-artifact@v3
               if: success() || failure()
               with:
                   name: test-results
