@@ -50,7 +50,7 @@ jobs:
         needs: test
         steps:
             - name: Test Report
-            - uses: dorny/test-reporter@v1
+              uses: dorny/test-reporter@v1
               with:
                   artifact: test-results
                   name: Tests
