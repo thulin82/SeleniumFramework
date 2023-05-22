@@ -45,5 +45,6 @@ jobs:
               with:
                   name: Tests
                   path: TestResults/testResults.trx
+                  max-annotations: "0"
                   reporter: dotnet-trx
                   fail-on-error: "false"
