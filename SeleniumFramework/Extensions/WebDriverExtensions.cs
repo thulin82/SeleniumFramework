@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using SeleniumFramework.Base;
 using System;
 using System.Diagnostics;
@@ -40,6 +42,12 @@ namespace SeleniumFramework.Extensions
                     break;
                 }
             }
+        }
+
+        public static void WaitToBeClickable(this IWebDriver driver, IWebElement element)
+        {
+            var webDriverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
+            webDriverWait.Until(ExpectedConditions.ElementToBeClickable(element));
         }
 
         internal static object ExecuteJS(this IWebDriver driver, string script)
