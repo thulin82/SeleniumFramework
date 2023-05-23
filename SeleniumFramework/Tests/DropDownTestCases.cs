@@ -14,7 +14,7 @@ namespace SeleniumFramework.Tests
         public void Initialize()
         {
             HomePage menu = new HomePage();
-            menu.ClosePopup();
+            HomePage.ClosePopup();
             menu.MenuInputForms.Click();
             dropDownPage = menu.ClickDropDown();
         }
