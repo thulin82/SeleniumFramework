@@ -39,7 +39,6 @@ namespace SeleniumFramework.Pages
             return new DropDownPage();
         }
 
-        public void ClosePopup()
         public static void ClosePopup()
         {
             bool exists = DriverContext.Driver.FindElements(By.Id("at-cv-lightbox")).Count != 0;
