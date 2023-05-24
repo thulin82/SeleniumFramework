@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFramework.Base;
+using SeleniumFramework.Extensions;
 
 namespace SeleniumFramework.Pages
 {
@@ -11,6 +12,7 @@ namespace SeleniumFramework.Pages
 
         public SimpleFormPage ClickSimpleForm()
         {
+            _driver.WaitToBeClickable(LnkSimpleForm);
             LnkSimpleForm.Click();
             return new SimpleFormPage();
         }
@@ -39,6 +41,12 @@ namespace SeleniumFramework.Pages
             return new DropDownPage();
         }
 
+        public InputFormPage ClickInputForm()
+        {
+            LnkInputFormsSubmit.Click();
+            return new InputFormPage();
+        }
+
         public static void ClosePopup()
         {
             bool exists = DriverContext.Driver.FindElements(By.Id("at-cv-lightbox")).Count != 0;
@@ -57,6 +65,7 @@ namespace SeleniumFramework.Pages
         public IWebElement MenuDatePickers => _driver.FindElement(By.XPath("//a[@class='dropdown-toggle'][contains(text(),'Date pickers')]"));
         public IWebElement MenuTable => _driver.FindElement(By.XPath("//a[@class='dropdown-toggle'][contains(text(),'Table')]"));
         public IWebElement LnkTableDataDownload => _driver.FindElement(By.XPath("//ul[@class='dropdown-menu']//a[contains(text(),'Table Data Download')]"));
+        public IWebElement LnkInputFormsSubmit => _driver.FindElement(By.XPath("//ul[@class='dropdown-menu']//a[contains(text(),'Input Form Submit')]"));
         #endregion
     }
 }
