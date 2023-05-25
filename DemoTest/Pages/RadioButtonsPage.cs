@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFramework.Base;
 
-namespace SeleniumFramework.Pages
+namespace DemoTest.Pages
 {
     public class RadioButtonsPage
     {

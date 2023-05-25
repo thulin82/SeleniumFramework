@@ -1,10 +1,9 @@
-﻿using NUnit.Framework;
+﻿using DemoTest.Pages;
+using NUnit.Framework;
 using SeleniumFramework.Base;
-using SeleniumFramework.Config;
 using SeleniumFramework.Extensions;
-using SeleniumFramework.Pages;
 
-namespace SeleniumFramework.Tests
+namespace DemoTest.Tests
 {
     class DropDownTestCases : TestInitializeHook
     {
@@ -30,7 +29,7 @@ namespace SeleniumFramework.Tests
         public void SelectSunday()
         {
             dropDownPage.DropDown.SelectDropDownList("Sunday");
-            Assert.That(dropDownPage.DayDisplay.Text == "Day selected :- Sunday", $"{ dropDownPage.DayDisplay.Text} is not equal to 'Day selected :- Sunday'");
+            Assert.That(dropDownPage.DayDisplay.Text == "Day selected :- Sunday", $"{dropDownPage.DayDisplay.Text} is not equal to 'Day selected :- Sunday'");
         }
 
         [OneTimeTearDown]

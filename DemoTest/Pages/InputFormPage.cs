@@ -1,10 +1,8 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using SeleniumFramework.Base;
-using System;
 using System.Collections.Generic;
 
-namespace SeleniumFramework.Pages
+namespace DemoTest.Pages
 {
     public class InputFormPage
     {

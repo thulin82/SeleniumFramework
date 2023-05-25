@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Base;
 using SeleniumFramework.Config;
-using SeleniumFramework.Pages;
+using DemoTest.Pages;
 
-namespace SeleniumFramework.Tests
+namespace DemoTest.Tests
 {
     public class SimpleFormTestCases : TestInitializeHook
     {

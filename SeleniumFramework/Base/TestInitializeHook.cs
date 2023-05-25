@@ -15,8 +15,10 @@ namespace SeleniumFramework.Base
         }
         public void InitializeSettings()
         {
-            // Framework settings from GlobalConfig.xml
+            // Framework settings from appsettings.json
             ConfigReader.SetFrameworkSettings();
+            // SUT settings from sutsettings.json
+            ConfigReader.SetSUTSettings();
 
             //Log setting
             //LogHelpers.CreateLogFile();

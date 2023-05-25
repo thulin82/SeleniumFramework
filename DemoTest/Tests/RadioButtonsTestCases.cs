@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Base;
-using SeleniumFramework.Pages;
+using DemoTest.Pages;
 
-namespace SeleniumFramework.Tests
+namespace DemoTest.Tests
 {
     class RadioButtonsTestCases : TestInitializeHook
     {

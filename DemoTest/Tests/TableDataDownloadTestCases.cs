@@ -1,10 +1,9 @@
-﻿using NUnit.Framework;
+﻿using DemoTest.Pages;
+using NUnit.Framework;
 using SeleniumFramework.Base;
-using SeleniumFramework.Config;
 using SeleniumFramework.Helpers;
-using SeleniumFramework.Pages;
 
-namespace SeleniumFramework.Tests
+namespace DemoTest.Tests
 {
     class TableDataDownloadTestCases : TestInitializeHook
     {

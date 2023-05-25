@@ -2,7 +2,7 @@
 using SeleniumFramework.Base;
 using SeleniumFramework.Extensions;
 
-namespace SeleniumFramework.Pages
+namespace DemoTest.Pages
 {
     public class HomePage
     {
