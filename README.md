@@ -2,7 +2,6 @@
 
 [![GitHub Actions](https://github.com/thulin82/SeleniumFramework/actions/workflows/github-actions.yml/badge.svg)](https://github.com/thulin82/SeleniumFramework/actions/workflows/github-actions.yml)
 
-Selenium Framework in C# using Page Objects
+Selenium Framework in C# using Page Objects, implemented with a Demo Project
 
 © Markus Thulin 2020-
-
